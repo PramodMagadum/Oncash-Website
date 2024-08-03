@@ -720,8 +720,8 @@
                         <div class="c-hero__video w-embed">
                             <div class="hero-video-container">
                                 <video poster="/img/3s_animation.gif" autoplay muted playsinline id="hero-video">
-  	<source src="/img/3s_animation.gif" type='video/mp4'>
-  	<source src="/img/3s_animation.gif" type="video/mp4">
+  	<source src="/img/3s_animation.gif" type='video/mp4; codecs="hvc1"'>
+  	<source src="/img/3s_animation.gif" type="video/webm">
 	</video>
                             </div>
                         </div>
@@ -932,7 +932,117 @@
                         <p class="subheading cc-center cc-fade-up cc-introduction">Oncash revolutionizes advertising by recommending apps you'll love and rewarding you for engagement. Discover, engage, and earn!.</p>
                     </div>
                 </div>
-             
+                <div class="c-devices-sticky-container">
+                    <div class="c-devices">
+                        <div class="c-devices-mask-container cc-fade-up">
+                            <div class="c-devices-container">
+                                <div class="c-html-embed w-embed w-script">
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            var hasPlayed = false;
+
+                                            function updateVideoSource() {
+                                                var iosVideo = document.getElementById('ios-block-screen-video');
+                                                var smallScreenSource = '/img/3s_animation.gif';
+                                                var normalSource = '/img/3s_animation.gif';
+
+                                                // Set video source based on window width
+                                                iosVideo.src = window.innerWidth <= 479 ? smallScreenSource : normalSource;
+                                            }
+
+                                            window.addEventListener('DOMContentLoaded', updateVideoSource); // Check on initial load
+                                            window.addEventListener('resize', updateVideoSource); // Check on window resize
+
+                                            window.addEventListener('scroll', function() {
+                                                var wScroll = window.scrollY;
+                                                var windowHeight = window.innerHeight;
+                                                var section = document.querySelector('.c-introduction');
+                                                var sectionStart = section.offsetTop;
+                                                var halfWindowHeight = windowHeight / 2;
+                                                var iosBlockScreenVideo = document.getElementById('ios-block-screen-video');
+                                                var macBlockScreenVideo = document.getElementById('mac-block-screen-video');
+
+                                                // Calculate trigger point as the start of the section plus half the window height
+                                                var triggerPoint = sectionStart + halfWindowHeight;
+
+                                                // Check if the scroll position has reached the trigger point and the videos haven't played yet
+                                                if (!hasPlayed && wScroll + windowHeight > triggerPoint) {
+                                                    hasPlayed = true;
+
+                                                    iosBlockScreenVideo.play();
+                                                    macBlockScreenVideo.play();
+                                                }
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                                <div class="c-devices-container__iphone">
+                                    <div class="c-devices-container__iphone-device">
+                                        <div class="c-devices-container__iphone-content"><img src="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663bfdc6c6f68b2142cfd8a9_video.webp" loading="eager" sizes="(max-width: 479px) 342.171875px, (max-width: 767px) 21vw, 20vw" srcset="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663bfdc6c6f68b2142cfd8a9_video-p-500.webp 500w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663bfdc6c6f68b2142cfd8a9_video.webp 1180w"
+                                                alt="" class="c-devices-container__iphone-content-img" />
+                                            <div class="c-devices-container__iphone-content-img w-embed">
+                                                <div class="ios-block-screen-video-container">
+                                                    <video muted playsinline id="ios-block-screen-video">
+  	<source src="/img/3s_animation.gif" type="video/mp4">
+	</video>
+                                                </div>
+
+                                                <style>
+                                                    .ios-block-screen-video-container {
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        overflow: hidden;
+                                                        position: relative;
+                                                    }
+
+                                                    .ios-block-screen-video-container video {
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        object-fit: contain;
+                                                    }
+                                                </style>
+                                            </div>
+                                        </div>
+                                        <div class="c-devices-container__iphone-frame"><img src="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637b61597d41e9d5a192360_iphone-frame.png" loading="eager" sizes="(max-width: 479px) 393px, (max-width: 767px) 23vw, (max-width: 991px) 22vw, 21vw"
+                                                srcset="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637b61597d41e9d5a192360_iphone-frame-p-500.png 500w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637b61597d41e9d5a192360_iphone-frame-p-800.png 800w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637b61597d41e9d5a192360_iphone-frame.png 1037w"
+                                                alt="" class="c-devices-container__iphone-frame-img" /></div>
+                                    </div>
+                                </div>
+                                <div class="c-devices-container__macbook">
+                                    <div class="c-devices-container__macbook-device">
+                                        <div class="c-block-screen-macos-slider-container"><img src="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6638040faa512fb39979982d_macos-block-screen-3.webp" loading="eager" sizes="(max-width: 479px) 100vw, (max-width: 767px) 80vw, (max-width: 991px) 76vw, 74vw"
+                                                srcset="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6638040faa512fb39979982d_macos-block-screen-3-p-500.webp 500w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6638040faa512fb39979982d_macos-block-screen-3-p-800.webp 800w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6638040faa512fb39979982d_macos-block-screen-3-p-1080.webp 1080w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6638040faa512fb39979982d_macos-block-screen-3-p-1600.webp 1600w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6638040faa512fb39979982d_macos-block-screen-3-p-2000.webp 2000w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6638040faa512fb39979982d_macos-block-screen-3-p-2600.webp 2600w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6638040faa512fb39979982d_macos-block-screen-3-p-3200.webp 3200w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6638040faa512fb39979982d_macos-block-screen-3.webp 4000w"
+                                                alt="" class="c-devices-container__macbook-content-img cc-block-screen-slider" />
+                                            <div class="c-devices-container__macbook-content-img w-embed">
+                                                <div class="mac-block-screen-video-container">
+                                                    <video muted playsinline id="mac-block-screen-video">
+  	<source src="https://github.com/ourlifeswork/opal-web/raw/main/mac-block-screen-demo.mp4" type="video/mp4">
+	</video>
+                                                </div>
+
+                                                <style>
+                                                    .mac-block-screen-video-container {
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        overflow: hidden;
+                                                        position: relative;
+                                                    }
+
+                                                    .mac-block-screen-video-container video {
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        object-fit: contain;
+                                                    }
+                                                </style>
+                                            </div>
+                                        </div><img src="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637ddb56a7207c608bd5659_macbook-pro-frame.png" loading="eager" sizes="(max-width: 479px) 100vw, (max-width: 767px) 82vw, (max-width: 991px) 78vw, 77vw"
+                                            srcset="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637ddb56a7207c608bd5659_macbook-pro-frame-p-500.png 500w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637ddb56a7207c608bd5659_macbook-pro-frame-p-800.png 800w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637ddb56a7207c608bd5659_macbook-pro-frame-p-1080.png 1080w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637ddb56a7207c608bd5659_macbook-pro-frame-p-1600.png 1600w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637ddb56a7207c608bd5659_macbook-pro-frame-p-2000.png 2000w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637ddb56a7207c608bd5659_macbook-pro-frame-p-2600.png 2600w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637ddb56a7207c608bd5659_macbook-pro-frame-p-3200.png 3200w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637ddb56a7207c608bd5659_macbook-pro-frame.png 3468w"
+                                            alt="" class="c-devices-container__macbook-frame-img" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="c-hero__btn-wrap visible">
                     <a href="/quiz" class="c-hero__cta cc-secondary not-hidden w-inline-block">
                         <div class="c-hero__cta__label cc-secondary">For Android</div>
@@ -1424,7 +1534,677 @@
                 </a>
             </div>
             <div class="c-use-cases__tabs-content w-tab-content">
-
+                <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
+                    <div class="c-use-cases__tab-content">
+                        <div class="swiper-container cc-use-cases">
+                            <div id="use-cases-all-slider" class="swiper c-use-cases-card__list-wrapper w-dyn-list">
+                                <div role="list" class="swiper-wrapper c-use-cases-card__list w-dyn-items">
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Every day</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">2PM - 3PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Commit to an hour of distraction-free work every afternoon.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Workdays</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">9AM - 5PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Keep distractions at bay during your optimal productive hours.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Daily</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">10PM - 8AM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Wind down and fall asleep faster without your phone. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Weekdays</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">2PM - 6PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Create dedicated distraction-free time for your homework. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Weekdays</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">9AM - 2PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Block distractions and create the conditions to crush your exams.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Weekdays</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">5PM - 6PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Set aside an hour in the evening to relax and decompress.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">One Off</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">1h 30m</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">This Timeout session helps you meet that deadline.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Weekdays</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">6AM - 8AM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">No scrolling at the gym to optimize your performance.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Monday</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">8AM - 6PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Dedicate time to your reading list without any distractions.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Weekends</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">5PM - 8PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Dedicate evenings on weekends to uninterrupted family time.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Friday</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">5PM - 7PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Dedicate time to cook with your family without screens.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Weekdays</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">8:30 - 9:30 AM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Block distractions while you drive and keep your eyes on the road!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Weekend</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">5 min</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Make the most of each weekend, limiting social media to a few minutes. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Every day</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">6AM - 9AM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Set yourself up for success each and every day of the week.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Always On</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">Deep Focus</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Temporarily brick your phone, only essential apps are allowed.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Thursday</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">8PM - 1PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Be present with your second half without any distractions.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">30m</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">Hard Limit</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Block social apps when you start feeling that mindless itch.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-w-tab="Tab 2" class="w-tab-pane">
+                    <div class="c-use-cases__tab-content">
+                        <div class="swiper-container cc-use-cases">
+                            <div id="use-cases-students-slider" class="swiper c-use-cases-card__list-wrapper w-dyn-list">
+                                <div role="list" class="swiper-wrapper c-use-cases-card__list w-dyn-items">
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c94de5aaa3c37fcb733_Frame%201171279527.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Weekdays</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">2PM - 6PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Create dedicated distraction-free time for your homework. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698a3e945f0b53436c5689_Frame%201171279526.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Weekdays</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">9AM - 2PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Block distractions and create the conditions to crush your exams.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698cef3cef1271d55d8328_Frame%201171279414.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Monday</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">8AM - 6PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Dedicate time to your reading list without any distractions.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d1fec857f46066665a7_Frame%201171279406.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">30m</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">Hard Limit</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Block social apps when you start feeling that mindless itch.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-w-tab="Tab 3" class="w-tab-pane">
+                    <div class="c-use-cases__tab-content">
+                        <div class="swiper-container cc-use-cases">
+                            <div id="use-cases-work-slider" class="swiper c-use-cases-card__list-wrapper w-dyn-list">
+                                <div role="list" class="swiper-wrapper c-use-cases-card__list w-dyn-items">
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698d6bbb91432cddaff1e7_Frame%201171279412.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Every day</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">2PM - 3PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Commit to an hour of distraction-free work every afternoon.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669902d4b76a979fd6f0716_Frame%201171279408.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Workdays</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">9AM - 5PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Keep distractions at bay during your optimal productive hours.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988df866a38d031cc8d22_Frame%201171279525.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">One Off</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">1h 30m</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">This Timeout session helps you meet that deadline.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b408818f7bc105667f9_Frame%201171279522.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Always On</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">Deep Focus</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Temporarily brick your phone, only essential apps are allowed.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-w-tab="Tab 4" class="w-tab-pane">
+                    <div class="c-use-cases__tab-content">
+                        <div class="swiper-container cc-use-cases">
+                            <div id="use-cases-wellbeing-slider" class="swiper c-use-cases-card__list-wrapper w-dyn-list">
+                                <div role="list" class="swiper-wrapper c-use-cases-card__list w-dyn-items">
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c076511d231d00d4c67_Frame%201171279415.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Daily</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">10PM - 8AM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Wind down and fall asleep faster without your phone. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666988a9f9bc72c1118737aa_Frame%201171279402.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Weekdays</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">5PM - 6PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Set aside an hour in the evening to relax and decompress.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698c2589c7187ab3d317e2_Frame%201171279528.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Weekdays</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">6AM - 8AM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">No scrolling at the gym to optimize your performance.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698dfb8b6f12bfc80041b0_Frame%201171279519.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Weekend</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">5 min</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Make the most of each weekend, limiting social media to a few minutes. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/666987fe8818f7bc105315a8_Frame%201171279405.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Every day</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">6AM - 9AM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Set yourself up for success each and every day of the week.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-w-tab="Tab 5" class="w-tab-pane">
+                    <div class="c-use-cases__tab-content">
+                        <div class="swiper-container cc-use-cases">
+                            <div id="use-cases-parents-slider" class="swiper c-use-cases-card__list-wrapper w-dyn-list">
+                                <div role="list" class="swiper-wrapper c-use-cases-card__list w-dyn-items">
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/6669887c9b1a11c201fcf2a5_Frame%201171279521.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Weekends</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">5PM - 8PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Dedicate evenings on weekends to uninterrupted family time.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698b7b41cac5b54c9fd37b_Frame%201171279520.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Friday</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">5PM - 7PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Dedicate time to cook with your family without screens.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698ba2df6442686f39d7b0_Frame%201171279529.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Weekdays</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">8:30 - 9:30 AM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Block distractions while you drive and keep your eyes on the road!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="swiper-slide c-use-cases-card__list-item w-dyn-item">
+                                        <div class="c-use-cases-card cc-hover-scale"><img loading="lazy" src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417.webp" alt="" sizes="(max-width: 767px) 350px, 448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417.webp 868w"
+                                                class="c-use-cases-card__img no-zoom" />
+                                            <div class="c-use-cases-card__header antoine_edit"></div>
+                                            <div class="c-card__blur cc-no-select no-blur"><img src="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417.webp" loading="lazy" alt="" sizes="448px" srcset="https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417-p-500.webp 500w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417-p-800.webp 800w, https://cdn.prod.website-files.com/600af2a75eac7614a9682354/66698bca41cac5b54ca0088a_Frame%201171279417.webp 868w"
+                                                    class="c-card__blur__img cc-no-select minimal-blur" /></div>
+                                            <div class="c-use-cases-card__container antoine_edit">
+                                                <div class="c-use-cases-card__content">
+                                                    <div class="c-use-cases-card__data-container antoine_edit">
+                                                        <div class="c-use-case-card__data-text">Thursday</div>
+                                                        <div class="c-use-case-card__data-text">,  </div>
+                                                        <div class="c-use-case-card__data-text">8PM - 1PM</div>
+                                                    </div>
+                                                </div>
+                                                <p class="c-use-cases-card__paragraph">Be present with your second half without any distractions.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="c-use-cases__content">
+            <div class="c-btn-wrap">
+                <a href="/quiz" class="c-cta-btn cc-use-cases cc-fade-up w-inline-block">
+                    <div class="c-cta-btn__label cc-gradient">Start your journey</div>
+                </a>
+            </div>
+        </div>
     </section>
     <!-- <section id="features" class="c-bento-grid">
         <div class="c-section-wrap">
