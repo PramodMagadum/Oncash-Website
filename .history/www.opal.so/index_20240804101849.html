@@ -610,109 +610,84 @@
                 </div>
                 <div class="c-html-embed w-embed w-script">
                     <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            const desktopVideo = document.querySelector('.hero-video-container video');
-                            const mobileVideo = document.querySelector('.hero-video-mobile-container video');
+                document.addEventListener("DOMContentLoaded", function() {
+    const desktopVideo = document.querySelector('.hero-video-container video');
+    const mobileVideo = document.querySelector('.hero-video-mobile-container video');
 
-                            var hasEnded = false;
+    let hasEnded = false;
 
-                            desktopVideo.playbackRate = 1.50;
-                            mobileVideo.playbackRate = 1.50;
+    desktopVideo.playbackRate = 1.50;
+    mobileVideo.playbackRate = 1.50;
 
-                            desktopVideo.addEventListener("play", function() {
-                                document.querySelectorAll(".c-hero__cta.cc-primary:not(.cc-mobile-cta)").forEach(function(element) {
-                                    element.classList.add("cc-animated-gradient");
-                                });
+    const applyGradient = (selector) => {
+        document.querySelectorAll(selector).forEach(element => {
+            element.classList.add("cc-animated-gradient");
+        });
+    };
 
-                                document.querySelectorAll(".heading-xl.cc-hero").forEach(function(element) {
-                                    element.classList.add("cc-animated-gradient");
-                                });
-                            });
+    const removeGradient = (selector, gradient) => {
+        document.querySelectorAll(selector).forEach(element => {
+            element.classList.remove("cc-animated-gradient");
+            element.style.backgroundImage = gradient;
+        });
+    };
 
-                            desktopVideo.addEventListener('ended', function() {
-                                document.querySelectorAll(".c-hero__cta.cc-primary:not(.cc-mobile-cta)").forEach(function(element) {
-                                    element.classList.remove("cc-animated-gradient");
-                                    element.style.backgroundImage = 'linear-gradient(90deg, #D4FF9C, #9EF9FF)';
-                                });
+    desktopVideo.addEventListener("play", function() {
+        applyGradient(".c-hero__cta.cc-primary:not(.cc-mobile-cta)");
+        applyGradient(".heading-xl.cc-hero");
+    });
 
-                                document.querySelectorAll(".heading-xl").forEach(function(element) {
-                                    element.classList.remove("cc-animated-gradient");
-                                    element.style.backgroundImage = 'linear-gradient(90deg, #D4FF9C, #9EF9FF)';
-                                });
+    desktopVideo.addEventListener('ended', function() {
+        removeGradient(".c-hero__cta.cc-primary:not(.cc-mobile-cta)", 'linear-gradient(90deg, #D4FF9C, #9EF9FF)');
+        removeGradient(".heading-xl.cc-hero", 'linear-gradient(90deg, #D4FF9C, #9EF9FF)');
+        hasEnded = true;
+    });
 
-                                hasEnded = true;
-                            });
+    desktopVideo.addEventListener('click', function() {
+        if (hasEnded) {
+            removeGradient(".c-hero__cta.cc-primary:not(.cc-mobile-cta)", 'linear-gradient(90deg, #A9CBFF, #B39AFF)');
+            removeGradient(".heading-xl.cc-hero", 'linear-gradient(90deg, #A9CBFF, #B39AFF)');
+            desktopVideo.currentTime = 0;
+            desktopVideo.play();
+        }
+    });
 
-                            desktopVideo.addEventListener('click', function() {
-                                if (hasEnded) {
-                                    document.querySelectorAll(".c-hero__cta.cc-primary:not(.cc-mobile-cta)").forEach(function(element) {
-                                        element.style.backgroundImage = 'linear-gradient(90deg, #A9CBFF, #B39AFF)';
-                                    });
+    mobileVideo.addEventListener("play", function() {
+        applyGradient(".c-hero__cta.cc-mobile-cta");
+        applyGradient(".heading-xl.cc-hero");
+    });
 
-                                    document.querySelectorAll(".heading-xl").forEach(function(element) {
-                                        element.style.backgroundImage = 'linear-gradient(90deg, #A9CBFF, #B39AFF)';
-                                    });
+    mobileVideo.addEventListener('ended', function() {
+        const videoContainer = document.querySelector('.hero-video-mobile-container');
+        const mobileHeroVideo = document.querySelector('.hero-video-mobile-container video');
+        const accolades = document.querySelector('.c-hero__accolades');
+        const subcontent = document.querySelector('.c-hero__subcontent');
+        const publications = document.querySelector('.c-hero__publications__container');
 
-                                    desktopVideo.currentTime = 0;
-                                    desktopVideo.play();
-                                }
-                            });
+        videoContainer.style.height = '37.5vh';
+        videoContainer.style.transform = 'none';
+        mobileHeroVideo.style.height = '120%';
 
-                            mobileVideo.addEventListener("play", function() {
-                                document.querySelectorAll(".c-hero__cta.cc-mobile-cta").forEach(function(element) {
-                                    element.classList.add("cc-animated-gradient");
-                                });
+        setTimeout(() => {
+            accolades.style.opacity = '1';
+            subcontent.style.opacity = '1';
+            publications.style.opacity = '1';
+        }, 300);
 
-                                document.querySelectorAll(".heading-xl.cc-hero").forEach(function(element) {
-                                    element.classList.add("cc-animated-gradient");
-                                });
-                            });
+        removeGradient(".c-hero__cta.cc-mobile-cta", 'linear-gradient(90deg, #D4FF9C, #9EF9FF)');
+        removeGradient(".heading-xl.cc-hero", 'linear-gradient(90deg, #D4FF9C, #9EF9FF)');
+        hasEnded = true;
+    });
 
-                            mobileVideo.addEventListener('ended', function() {
-                                const videoContainer = document.querySelector('.c-hero__video-container.cc-mobile');
-                                const mobileHeroVideo = document.querySelector('.c-hero__video-container.cc-mobile .c-hero__video');
-                                const accolades = document.querySelector('.c-hero__accolades');
-                                const subcontent = document.querySelector('.c-hero__subcontent');
-                                const publications = document.querySelector('.c-hero__publications__container');
-
-                                videoContainer.style.height = '37.5vh';
-                                videoContainer.style.transform = 'none';
-                                mobileHeroVideo.style.height = '120%';
-
-                                setTimeout(() => {
-                                    accolades.style.opacity = '1';
-                                    subcontent.style.opacity = '1';
-                                    publications.style.opacity = '1';
-                                }, 300);
-
-                                document.querySelectorAll(".c-hero__cta.cc-mobile-cta").forEach(function(element) {
-                                    element.classList.remove("cc-animated-gradient");
-                                    element.style.backgroundImage = 'linear-gradient(90deg, #D4FF9C, #9EF9FF)';
-                                });
-
-                                document.querySelectorAll(".heading-xl.cc-hero").forEach(function(element) {
-                                    element.classList.remove("cc-animated-gradient");
-                                    element.style.backgroundImage = 'linear-gradient(90deg, #D4FF9C, #9EF9FF)';
-                                });
-
-                                hasEnded = true;
-                            });
-
-                            mobileVideo.addEventListener('click', function() {
-                                if (hasEnded) {
-                                    document.querySelectorAll(".c-hero__cta.cc-mobile-cta").forEach(function(element) {
-                                        element.style.backgroundImage = 'linear-gradient(90deg, #A9CBFF, #B39AFF)';
-                                    });
-
-                                    document.querySelectorAll(".heading-xl.cc-hero").forEach(function(element) {
-                                        element.style.backgroundImage = 'linear-gradient(90deg, #A9CBFF, #B39AFF)';
-                                    });
-
-                                    mobileVideo.currentTime = 0;
-                                    mobileVideo.play();
-                                }
-                            });
-                        });
+    mobileVideo.addEventListener('click', function() {
+        if (hasEnded) {
+            removeGradient(".c-hero__cta.cc-mobile-cta", 'linear-gradient(90deg, #A9CBFF, #B39AFF)');
+            removeGradient(".heading-xl.cc-hero", 'linear-gradient(90deg, #A9CBFF, #B39AFF)');
+            mobileVideo.currentTime = 0;
+            mobileVideo.play();
+        }
+    });
+});
                     </script>
                 </div>
                 <div id="w-node-_9632f03e-635e-c4b3-fc4a-5ca9e6a95dc0-a5c474d3" class="c-hero__video-container">
@@ -720,7 +695,8 @@
                         <div class="c-hero__video w-embed">
                             <div class="hero-video-container">
                                 <video poster="/img/3s_animation.gif" autoplay muted playsinline id="hero-video">
-
+  	<source src="/img/3s_animation.gif" type='video/mp4'>
+  	<source src="/img/3s_animation.gif" type="video/mp4">
 	</video>
                             </div>
                         </div>
@@ -730,7 +706,7 @@
                 </div>
                 <div class="c-hero__right-wrap">
                     <div class="c-hero__right-container">
-                        <div class="c-hero__content">
+                        <!-- <div class="c-hero__content">
                             <div class="c-hero__accolades"><img src="https://i.pinimg.com/originals/ce/1e/2f/ce1e2f80c68d5f1462f1098eb5597a4c.png" loading="eager" alt="" class="c-hero__accolade-img" />
                                 <div class="c-hero__app-store-ratings">
                                     <div class="c-hero__app-store-ratings__header">
@@ -851,12 +827,147 @@
                             </div>
                             <div id="w-node-_2de7f885-624c-1eef-ebac-bcd4026b5871-a5c474d3" class="c-hero__video-container cc-mobile"><img src="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663e34a01d712ff0a3d79b8d_hero-glow.webp" loading="lazy" sizes="100vw" srcset="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663e34a01d712ff0a3d79b8d_hero-glow-p-500.webp 500w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663e34a01d712ff0a3d79b8d_hero-glow-p-800.png 800w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663e34a01d712ff0a3d79b8d_hero-glow-p-1080.png 1080w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663e34a01d712ff0a3d79b8d_hero-glow.webp 1286w"
                                     alt="" class="c-hero__mobile-glow" />
+                                    
                                 <div class="c-hero__video-mask">
                                     <div class="c-hero__video w-embed">
                                         <div class="hero-video-mobile-container">
                                             <video poster="/wepg mock/mock for start.gif" autoplay muted playsinline id="hero-video-mobile">
   	<source src="/img/3s_animation.gif" type='video/mp4; codecs="hvc1"'>
   	<source src="/img/3s_animation.gif" type="video/webm">
+	</video>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="c-hero__content">
+                            <div class="c-hero__accolades"><img src="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663e356f1f3e68f94dae1deb_app-of-the-day-crest.svg" loading="eager" alt="" class="c-hero__accolade-img" />
+                                <div class="c-hero__app-store-ratings">
+                                    <div class="c-hero__app-store-ratings__header">
+                                        <div class="c-hero__app-store-ratings__score">4.8</div>
+                                        <div class="c-hero__app-store-ratings__stars">
+                                            <div class="c-hero__app-store-ratings__star__container">
+                                                <div class="c-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 21 20" fill="none">
+  <path d="M9.95242 1.54022C10.1897 1.05959 10.3083 0.819268 10.4693 0.742486C10.6094 0.675682 10.7722 0.675682 10.9123 0.742486C11.0734 0.819268 11.192 1.05959 11.4292 1.54022L13.6801 6.10014C13.7501 6.24204 13.7851 6.31299 13.8363 6.36807C13.8816 6.41684 13.936 6.45636 13.9963 6.48443C14.0645 6.51614 14.1428 6.52758 14.2994 6.55047L19.3341 7.28637C19.8643 7.36387 20.1294 7.40261 20.2521 7.53211C20.3588 7.64477 20.409 7.79959 20.3887 7.95345C20.3653 8.1303 20.1734 8.31722 19.7896 8.69108L16.1478 12.2382C16.0343 12.3488 15.9775 12.4041 15.9409 12.4699C15.9084 12.5281 15.8876 12.5921 15.8796 12.6583C15.8705 12.733 15.8839 12.8111 15.9107 12.9673L16.77 17.9775C16.8607 18.5059 16.906 18.7701 16.8208 18.9269C16.7467 19.0633 16.615 19.159 16.4624 19.1873C16.2869 19.2198 16.0497 19.0951 15.5751 18.8455L11.0741 16.4785C10.9339 16.4047 10.8638 16.3678 10.7899 16.3533C10.7245 16.3405 10.6572 16.3405 10.5918 16.3533C10.5179 16.3678 10.4478 16.4047 10.3075 16.4785L5.80654 18.8455C5.33201 19.0951 5.09474 19.2198 4.9193 19.1873C4.76666 19.159 4.63495 19.0633 4.56085 18.9269C4.47569 18.7701 4.521 18.5059 4.61164 17.9775L5.47094 12.9673C5.49773 12.8111 5.51112 12.733 5.50206 12.6583C5.49403 12.5921 5.47323 12.5281 5.4408 12.4699C5.40417 12.4041 5.34741 12.3488 5.23388 12.2382L1.59207 8.69108C1.20823 8.31722 1.01631 8.1303 0.992959 7.95345C0.97264 7.79959 1.02284 7.64477 1.12958 7.53211C1.25226 7.40261 1.51735 7.36387 2.04753 7.28637L7.08228 6.55047C7.23886 6.52758 7.31715 6.51614 7.38533 6.48443C7.44569 6.45636 7.50004 6.41684 7.54535 6.36807C7.59653 6.31299 7.63155 6.24204 7.7016 6.10014L9.95242 1.54022Z" fill="url(#paint0_linear_956_89557)"/>
+  <defs>
+    <linearGradient id="paint0_linear_956_89557" x1="10.6908" y1="0.692383" x2="10.6908" y2="19.1924" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+</svg></div>
+                                            </div>
+                                            <div class="c-hero__app-store-ratings__star__container">
+                                                <div class="c-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 21 20" fill="none">
+  <path d="M9.95242 1.54022C10.1897 1.05959 10.3083 0.819268 10.4693 0.742486C10.6094 0.675682 10.7722 0.675682 10.9123 0.742486C11.0734 0.819268 11.192 1.05959 11.4292 1.54022L13.6801 6.10014C13.7501 6.24204 13.7851 6.31299 13.8363 6.36807C13.8816 6.41684 13.936 6.45636 13.9963 6.48443C14.0645 6.51614 14.1428 6.52758 14.2994 6.55047L19.3341 7.28637C19.8643 7.36387 20.1294 7.40261 20.2521 7.53211C20.3588 7.64477 20.409 7.79959 20.3887 7.95345C20.3653 8.1303 20.1734 8.31722 19.7896 8.69108L16.1478 12.2382C16.0343 12.3488 15.9775 12.4041 15.9409 12.4699C15.9084 12.5281 15.8876 12.5921 15.8796 12.6583C15.8705 12.733 15.8839 12.8111 15.9107 12.9673L16.77 17.9775C16.8607 18.5059 16.906 18.7701 16.8208 18.9269C16.7467 19.0633 16.615 19.159 16.4624 19.1873C16.2869 19.2198 16.0497 19.0951 15.5751 18.8455L11.0741 16.4785C10.9339 16.4047 10.8638 16.3678 10.7899 16.3533C10.7245 16.3405 10.6572 16.3405 10.5918 16.3533C10.5179 16.3678 10.4478 16.4047 10.3075 16.4785L5.80654 18.8455C5.33201 19.0951 5.09474 19.2198 4.9193 19.1873C4.76666 19.159 4.63495 19.0633 4.56085 18.9269C4.47569 18.7701 4.521 18.5059 4.61164 17.9775L5.47094 12.9673C5.49773 12.8111 5.51112 12.733 5.50206 12.6583C5.49403 12.5921 5.47323 12.5281 5.4408 12.4699C5.40417 12.4041 5.34741 12.3488 5.23388 12.2382L1.59207 8.69108C1.20823 8.31722 1.01631 8.1303 0.992959 7.95345C0.97264 7.79959 1.02284 7.64477 1.12958 7.53211C1.25226 7.40261 1.51735 7.36387 2.04753 7.28637L7.08228 6.55047C7.23886 6.52758 7.31715 6.51614 7.38533 6.48443C7.44569 6.45636 7.50004 6.41684 7.54535 6.36807C7.59653 6.31299 7.63155 6.24204 7.7016 6.10014L9.95242 1.54022Z" fill="url(#paint0_linear_956_89557)"/>
+  <defs>
+    <linearGradient id="paint0_linear_956_89557" x1="10.6908" y1="0.692383" x2="10.6908" y2="19.1924" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+</svg></div>
+                                            </div>
+                                            <div class="c-hero__app-store-ratings__star__container">
+                                                <div class="c-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 21 20" fill="none">
+  <path d="M9.95242 1.54022C10.1897 1.05959 10.3083 0.819268 10.4693 0.742486C10.6094 0.675682 10.7722 0.675682 10.9123 0.742486C11.0734 0.819268 11.192 1.05959 11.4292 1.54022L13.6801 6.10014C13.7501 6.24204 13.7851 6.31299 13.8363 6.36807C13.8816 6.41684 13.936 6.45636 13.9963 6.48443C14.0645 6.51614 14.1428 6.52758 14.2994 6.55047L19.3341 7.28637C19.8643 7.36387 20.1294 7.40261 20.2521 7.53211C20.3588 7.64477 20.409 7.79959 20.3887 7.95345C20.3653 8.1303 20.1734 8.31722 19.7896 8.69108L16.1478 12.2382C16.0343 12.3488 15.9775 12.4041 15.9409 12.4699C15.9084 12.5281 15.8876 12.5921 15.8796 12.6583C15.8705 12.733 15.8839 12.8111 15.9107 12.9673L16.77 17.9775C16.8607 18.5059 16.906 18.7701 16.8208 18.9269C16.7467 19.0633 16.615 19.159 16.4624 19.1873C16.2869 19.2198 16.0497 19.0951 15.5751 18.8455L11.0741 16.4785C10.9339 16.4047 10.8638 16.3678 10.7899 16.3533C10.7245 16.3405 10.6572 16.3405 10.5918 16.3533C10.5179 16.3678 10.4478 16.4047 10.3075 16.4785L5.80654 18.8455C5.33201 19.0951 5.09474 19.2198 4.9193 19.1873C4.76666 19.159 4.63495 19.0633 4.56085 18.9269C4.47569 18.7701 4.521 18.5059 4.61164 17.9775L5.47094 12.9673C5.49773 12.8111 5.51112 12.733 5.50206 12.6583C5.49403 12.5921 5.47323 12.5281 5.4408 12.4699C5.40417 12.4041 5.34741 12.3488 5.23388 12.2382L1.59207 8.69108C1.20823 8.31722 1.01631 8.1303 0.992959 7.95345C0.97264 7.79959 1.02284 7.64477 1.12958 7.53211C1.25226 7.40261 1.51735 7.36387 2.04753 7.28637L7.08228 6.55047C7.23886 6.52758 7.31715 6.51614 7.38533 6.48443C7.44569 6.45636 7.50004 6.41684 7.54535 6.36807C7.59653 6.31299 7.63155 6.24204 7.7016 6.10014L9.95242 1.54022Z" fill="url(#paint0_linear_956_89557)"/>
+  <defs>
+    <linearGradient id="paint0_linear_956_89557" x1="10.6908" y1="0.692383" x2="10.6908" y2="19.1924" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+</svg></div>
+                                            </div>
+                                            <div class="c-hero__app-store-ratings__star__container">
+                                                <div class="c-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 21 20" fill="none">
+  <path d="M9.95242 1.54022C10.1897 1.05959 10.3083 0.819268 10.4693 0.742486C10.6094 0.675682 10.7722 0.675682 10.9123 0.742486C11.0734 0.819268 11.192 1.05959 11.4292 1.54022L13.6801 6.10014C13.7501 6.24204 13.7851 6.31299 13.8363 6.36807C13.8816 6.41684 13.936 6.45636 13.9963 6.48443C14.0645 6.51614 14.1428 6.52758 14.2994 6.55047L19.3341 7.28637C19.8643 7.36387 20.1294 7.40261 20.2521 7.53211C20.3588 7.64477 20.409 7.79959 20.3887 7.95345C20.3653 8.1303 20.1734 8.31722 19.7896 8.69108L16.1478 12.2382C16.0343 12.3488 15.9775 12.4041 15.9409 12.4699C15.9084 12.5281 15.8876 12.5921 15.8796 12.6583C15.8705 12.733 15.8839 12.8111 15.9107 12.9673L16.77 17.9775C16.8607 18.5059 16.906 18.7701 16.8208 18.9269C16.7467 19.0633 16.615 19.159 16.4624 19.1873C16.2869 19.2198 16.0497 19.0951 15.5751 18.8455L11.0741 16.4785C10.9339 16.4047 10.8638 16.3678 10.7899 16.3533C10.7245 16.3405 10.6572 16.3405 10.5918 16.3533C10.5179 16.3678 10.4478 16.4047 10.3075 16.4785L5.80654 18.8455C5.33201 19.0951 5.09474 19.2198 4.9193 19.1873C4.76666 19.159 4.63495 19.0633 4.56085 18.9269C4.47569 18.7701 4.521 18.5059 4.61164 17.9775L5.47094 12.9673C5.49773 12.8111 5.51112 12.733 5.50206 12.6583C5.49403 12.5921 5.47323 12.5281 5.4408 12.4699C5.40417 12.4041 5.34741 12.3488 5.23388 12.2382L1.59207 8.69108C1.20823 8.31722 1.01631 8.1303 0.992959 7.95345C0.97264 7.79959 1.02284 7.64477 1.12958 7.53211C1.25226 7.40261 1.51735 7.36387 2.04753 7.28637L7.08228 6.55047C7.23886 6.52758 7.31715 6.51614 7.38533 6.48443C7.44569 6.45636 7.50004 6.41684 7.54535 6.36807C7.59653 6.31299 7.63155 6.24204 7.7016 6.10014L9.95242 1.54022Z" fill="url(#paint0_linear_956_89557)"/>
+  <defs>
+    <linearGradient id="paint0_linear_956_89557" x1="10.6908" y1="0.692383" x2="10.6908" y2="19.1924" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+</svg></div>
+                                            </div>
+                                            <div class="c-hero__app-store-ratings__star__container">
+                                                <div class="c-icon w-embed"><svg width="100%" height="100%" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_205_74559" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="9" y="1" width="19" height="26">
+<path d="M15.907 25.5L24.907 27L27.407 1L14.907 2.5L9.40698 22.5L15.907 25.5Z" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_205_74559)">
+<path d="M10.5993 1.76153L12.8501 6.32146C12.8549 6.3311 12.8597 6.34101 12.8647 6.35114C12.9186 6.46125 12.9853 6.59739 13.0884 6.7084C13.1777 6.80456 13.2849 6.88246 13.4039 6.93781C13.5413 7.0017 13.6914 7.02315 13.8127 7.0405C13.8239 7.04209 13.8348 7.04365 13.8455 7.04521L18.8802 7.78112C19.1552 7.8213 19.327 7.84692 19.4474 7.87588C19.4651 7.88013 19.4799 7.88408 19.4921 7.88762C19.4843 7.89764 19.4746 7.90951 19.4628 7.92334C19.3823 8.01745 19.2582 8.13902 19.0591 8.3329L15.4173 11.88C15.4096 11.8875 15.4017 11.8952 15.3935 11.9031C15.3053 11.9885 15.1962 12.0941 15.1224 12.2266C15.0585 12.3414 15.0175 12.4676 15.0016 12.5981C14.9834 12.7487 15.0095 12.8983 15.0307 13.0192C15.0326 13.0303 15.0345 13.0412 15.0363 13.0518L15.8956 18.062C15.9426 18.336 15.9715 18.5075 15.9813 18.631C15.9827 18.6492 15.9836 18.6645 15.984 18.6772C15.972 18.6728 15.9577 18.6673 15.9409 18.6604C15.8264 18.6129 15.6723 18.5324 15.4263 18.403L10.9252 16.0359C10.9157 16.0309 10.9059 16.0257 10.896 16.0204C10.7875 15.963 10.6534 15.8919 10.5045 15.8627C10.3756 15.8374 10.2429 15.8374 10.114 15.8627C9.96509 15.8919 9.83097 15.963 9.7225 16.0205C9.71252 16.0257 9.70276 16.0309 9.69323 16.0359L5.19222 18.403C4.94613 18.5324 4.79204 18.6129 4.67755 18.6604C4.66073 18.6673 4.64645 18.6728 4.63448 18.6772C4.63491 18.6645 4.63573 18.6492 4.63717 18.631C4.64695 18.5075 4.67585 18.336 4.72285 18.062L5.58215 13.0518C5.58397 13.0412 5.58587 13.0303 5.58782 13.0192C5.60896 12.8983 5.63509 12.7487 5.61683 12.5981C5.60101 12.4676 5.55999 12.3414 5.49606 12.2266C5.42224 12.0941 5.31315 11.9885 5.22493 11.9031C5.21681 11.8952 5.20887 11.8875 5.20115 11.88L1.55934 8.3329C1.36028 8.13902 1.23619 8.01745 1.15566 7.92333C1.14384 7.90951 1.13419 7.89765 1.12637 7.88762C1.13859 7.88409 1.15336 7.88013 1.17105 7.87588C1.29148 7.84692 1.4633 7.8213 1.73825 7.78112L6.77301 7.04521C6.78365 7.04365 6.79457 7.04209 6.80574 7.0405C6.9271 7.02315 7.07717 7.0017 7.21457 6.93781C7.33358 6.88246 7.44072 6.80456 7.53006 6.7084C7.6332 6.59739 7.69987 6.46124 7.75378 6.35114C7.75874 6.34101 7.7636 6.3311 7.76836 6.32146L10.0192 1.76153C10.1422 1.51228 10.2196 1.35666 10.2843 1.25098C10.2938 1.23546 10.3021 1.22262 10.3092 1.21208C10.3164 1.22262 10.3247 1.23546 10.3342 1.25098C10.3989 1.35666 10.4763 1.51228 10.5993 1.76153Z" stroke="url(#paint0_linear_205_74559)" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<mask id="mask1_205_74559" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="-3" y="-2" width="18" height="24">
+<path d="M-2.5 21.5V-1.5H8.50632L14.91 2.5L9.74626 21.3036L-2.5 21.5Z" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask1_205_74559)">
+<path d="M9.57083 1.54022C9.80807 1.05959 9.9267 0.819268 10.0877 0.742486C10.2278 0.675682 10.3906 0.675682 10.5307 0.742486C10.6918 0.819268 10.8104 1.05959 11.0476 1.54022L13.2985 6.10014C13.3685 6.24204 13.4035 6.31299 13.4547 6.36807C13.5 6.41684 13.5544 6.45636 13.6147 6.48443C13.6829 6.51614 13.7612 6.52758 13.9178 6.55047L18.9525 7.28637C19.4827 7.36387 19.7478 7.40261 19.8705 7.53211C19.9772 7.64477 20.0274 7.79959 20.0071 7.95345C19.9838 8.1303 19.7918 8.31722 19.408 8.69108L15.7662 12.2382C15.6527 12.3488 15.5959 12.4041 15.5593 12.4699C15.5268 12.5281 15.506 12.5921 15.498 12.6583C15.4889 12.733 15.5023 12.8111 15.5291 12.9673L16.3884 17.9775C16.4791 18.5059 16.5244 18.7701 16.4392 18.9269C16.3651 19.0633 16.2334 19.159 16.0808 19.1873C15.9053 19.2198 15.6681 19.0951 15.1935 18.8455L10.6925 16.4785C10.5523 16.4047 10.4822 16.3678 10.4083 16.3533C10.3429 16.3405 10.2756 16.3405 10.2102 16.3533C10.1363 16.3678 10.0662 16.4047 9.92595 16.4785L5.42495 18.8455C4.95041 19.0951 4.71315 19.2198 4.53771 19.1873C4.38507 19.159 4.25336 19.0633 4.17926 18.9269C4.0941 18.7701 4.13941 18.5059 4.23004 17.9775L5.08934 12.9673C5.11613 12.8111 5.12953 12.733 5.12047 12.6583C5.11244 12.5921 5.09164 12.5281 5.05921 12.4699C5.02258 12.4041 4.96581 12.3488 4.85229 12.2382L1.21047 8.69108C0.826639 8.31722 0.634721 8.1303 0.611367 7.95345C0.591048 7.79959 0.641246 7.64477 0.747985 7.53211C0.870666 7.40261 1.13576 7.36387 1.66594 7.28637L6.70069 6.55047C6.85727 6.52758 6.93555 6.51614 7.00373 6.48443C7.0641 6.45636 7.11845 6.41684 7.16376 6.36807C7.21494 6.31299 7.24996 6.24204 7.32 6.10014L9.57083 1.54022Z" fill="url(#paint1_linear_205_74559)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_205_74559" x1="10.3092" y1="0.692383" x2="10.3092" y2="19.1924" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0.7"/>
+</linearGradient>
+<linearGradient id="paint1_linear_205_74559" x1="10.3092" y1="0.692383" x2="10.3092" y2="19.1924" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0.7"/>
+</linearGradient>
+</defs>
+</svg></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="c-hero__app-store-ratings__text">40k+ App Ratings</div>
+                                </div>
+                            </div>
+                            <div class="c-hero__subcontent">
+                                <h1 class="heading-xl cc-hero">Focus is hard.</h1>
+                                <p class="paragraph-new cc-hero-subheading cc-mobile-hidden">So we made it easier for everyone. Join a community of over 4 million on the world’s favorite Screen Time app.</p>
+                                <p class="paragraph-new cc-hero-subheading cc-mobile-visible">So we made it easier for everyone. Join a community of over 4 million on the world’s favorite Screen Time app.</p>
+                                <div class="c-hero__btn-wrap">
+                                    <a href="/quiz" class="c-hero__cta cc-secondary cc-mobile-hidden w-inline-block">
+                                        <div class="c-hero__cta__label cc-secondary">For iPhone</div>
+                                        <div class="c-hero__cta__secondary-icon">
+                                            <div class="c-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="23" viewBox="0 0 17 23" fill="none">
+  <path d="M8.42236 17.4629H8.43236M4.62236 21.9629H12.2224C13.3425 21.9629 13.9025 21.9629 14.3303 21.7449C14.7067 21.5532 15.0126 21.2472 15.2044 20.8709C15.4224 20.443 15.4224 19.883 15.4224 18.7629V5.16289C15.4224 4.04279 15.4224 3.48273 15.2044 3.05491C15.0126 2.67859 14.7067 2.37262 14.3303 2.18088C13.9025 1.96289 13.3425 1.96289 12.2224 1.96289H4.62236C3.50226 1.96289 2.94221 1.96289 2.51438 2.18088C2.13806 2.37262 1.8321 2.67859 1.64035 3.05491C1.42236 3.48273 1.42236 4.04279 1.42236 5.16289V18.7629C1.42236 19.883 1.42236 20.443 1.64035 20.8709C1.8321 21.2472 2.13806 21.5532 2.51438 21.7449C2.94221 21.9629 3.50226 21.9629 4.62236 21.9629ZM8.92236 17.4629C8.92236 17.739 8.69851 17.9629 8.42236 17.9629C8.14622 17.9629 7.92236 17.739 7.92236 17.4629C7.92236 17.1867 8.14622 16.9629 8.42236 16.9629C8.69851 16.9629 8.92236 17.1867 8.92236 17.4629Z" stroke="url(#paint0_linear_872_98720)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="paint0_linear_872_98720" x1="8.42236" y1="1.96289" x2="8.42236" y2="21.9629" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+</svg></div>
+                                        </div>
+                                    </a>
+                                    <a href="/mac" class="c-hero__cta cc-primary cc-mobile-hidden w-inline-block">
+                                        <div class="c-hero__cta__label cc-primary">For macOS</div>
+                                        <div class="c-hero__cta__primary-icon">
+                                            <div class="c-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19" fill="none">
+  <path d="M2.42407 13.9629V5.16289C2.42407 4.04279 2.42407 3.48273 2.64206 3.05491C2.83381 2.67859 3.13977 2.37262 3.51609 2.18088C3.94391 1.96289 4.50397 1.96289 5.62407 1.96289H17.2241C18.3442 1.96289 18.9042 1.96289 19.3321 2.18088C19.7084 2.37262 20.0143 2.67859 20.2061 3.05491C20.4241 3.48273 20.4241 4.04279 20.4241 5.16289V13.9629H15.0868C14.8422 13.9629 14.7199 13.9629 14.6048 13.9905C14.5028 14.015 14.4053 14.0554 14.3158 14.1103C14.2149 14.1721 14.1284 14.2586 13.9554 14.4315L13.8927 14.4943C13.7197 14.6672 13.6333 14.7537 13.5324 14.8155C13.4429 14.8704 13.3453 14.9108 13.2433 14.9353C13.1282 14.9629 13.0059 14.9629 12.7613 14.9629H10.0868C9.84222 14.9629 9.71993 14.9629 9.60484 14.9353C9.5028 14.9108 9.40526 14.8704 9.31579 14.8155C9.21487 14.7537 9.12839 14.6672 8.95544 14.4943L8.8927 14.4315C8.71975 14.2586 8.63327 14.1721 8.53236 14.1103C8.44288 14.0554 8.34534 14.015 8.2433 13.9905C8.12822 13.9629 8.00592 13.9629 7.76133 13.9629H2.42407ZM2.42407 13.9629C1.87179 13.9629 1.42407 14.4106 1.42407 14.9629V15.2962C1.42407 15.9162 1.42407 16.2262 1.49222 16.4805C1.67715 17.1707 2.21625 17.7098 2.90643 17.8947C3.16077 17.9629 3.47076 17.9629 4.09074 17.9629H18.7574C19.3774 17.9629 19.6874 17.9629 19.9417 17.8947C20.6319 17.7098 21.171 17.1707 21.3559 16.4805C21.4241 16.2262 21.4241 15.9162 21.4241 15.2962C21.4241 14.9862 21.4241 14.8312 21.39 14.7041C21.2975 14.359 21.028 14.0894 20.6829 13.997C20.5557 13.9629 20.4007 13.9629 20.0907 13.9629H19.4241" stroke="url(#paint0_linear_872_98723)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="paint0_linear_872_98723" x1="11.4241" y1="1.96289" x2="11.4241" y2="17.9629" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B0B15"/>
+      <stop offset="1" stop-color="#0B0B15" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+</svg></div>
+                                        </div>
+                                    </a>
+                                    <a href="/quiz" class="c-hero__cta cc-primary cc-mobile-visible cc-mobile-cta w-inline-block">
+                                        <div class="c-hero__cta__label cc-primary">Try Opal for free</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="w-node-_2de7f885-624c-1eef-ebac-bcd4026b5871-a5c474d3" class="c-hero__video-container cc-mobile"><img src="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663e34a01d712ff0a3d79b8d_hero-glow.webp" loading="lazy" sizes="100vw" srcset="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663e34a01d712ff0a3d79b8d_hero-glow-p-500.webp 500w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663e34a01d712ff0a3d79b8d_hero-glow-p-800.png 800w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663e34a01d712ff0a3d79b8d_hero-glow-p-1080.png 1080w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663e34a01d712ff0a3d79b8d_hero-glow.webp 1286w"
+                                    alt="" class="c-hero__mobile-glow" />
+                                <div class="c-hero__video-mask">
+                                    <div class="c-hero__video w-embed">
+                                        <div class="hero-video-mobile-container">
+                                            <video poster="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663bfef7636a27c0b19c02bc_hero-video-thumb.webp" autoplay muted playsinline id="hero-video-mobile">
+  	<source src="https://github.com/ourlifeswork/opal-web/raw/main/opal-hero-animation-hevc-safari.mp4" type='video/mp4; codecs="hvc1"'>
+  	<source src="https://github.com/ourlifeswork/opal-web/raw/main/opal-hero-animation-vp9-chrome.webm" type="video/webm">
 	</video>
                                         </div>
                                     </div>
@@ -2155,9 +2266,7 @@
             <div class="c-full-width-cta__glow"><img src="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663fb9cff782fc93b5c061bd_blue-glow.webp" loading="lazy" sizes="(max-width: 479px) 440px, (max-width: 991px) 100vw, 1120px" srcset="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663fb9cff782fc93b5c061bd_blue-glow-p-500.png 500w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663fb9cff782fc93b5c061bd_blue-glow-p-800.png 800w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663fb9cff782fc93b5c061bd_blue-glow-p-1080.png 1080w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663fb9cff782fc93b5c061bd_blue-glow-p-1600.png 1600w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663fb9cff782fc93b5c061bd_blue-glow.webp 2000w"
                     alt="" class="c-gradient-img" /></div>
             <div class="c-full-width-cta__container">
-                <div class="c-full-width-cta__content">
-                    
-                    <img src="../img/LOGO.png" loading="eager" alt="" class="c-full-width-cta__img cc-fade-up" />
+                <div class="c-full-width-cta__content"><img src="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/66354518a525fe2eb6022c1b_opal-app-icon.png" loading="eager" alt="" class="c-full-width-cta__img cc-fade-up" />
                     <h2 class="heading-lg cc-center cc-gradient cc-fade-up cc-full-width-cta">Increase your earnings<br/>boost your motivation.</h2>
                 </div>
                 <a href="/quiz" class="c-cta-btn cc-full-width-cta cc-fade-up w-inline-block">
