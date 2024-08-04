@@ -2143,8 +2143,8 @@
                 let remainingSeconds = elapsedTimeSeconds % 3600; // remaining seconds after full hours
 
                 // Calculate initial counter value
-                var startValue = 2 +
-                    elapsedTimeHours * incrementPerSecond * 3 +
+                var startValue = 60000000 +
+                    elapsedTimeHours * incrementPerSecond * 3600 +
                     remainingSeconds * incrementPerSecond;
 
                 function formatCounterValue(num) {
