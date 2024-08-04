@@ -496,7 +496,7 @@
                 </style>
             </div>
             <a href="/" aria-current="page" class="link-block-8 w-inline-block w--current">
-                <div><img src="/img/LOGO.jpg" loading="eager" alt="" class="c-nav__logo" /></div>
+                <div><img src="/img/LOGO.png" loading="eager" alt="" class="c-nav__logo" /></div>
             </a>
             <div class="c-nav__menu-container">
                 <nav role="navigation" class="c-nav__menu w-nav-menu">
@@ -609,112 +609,114 @@
                     </style>
                 </div>
                 <div class="c-html-embed w-embed w-script">
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            const desktopVideo = document.querySelector('.hero-video-container video');
-                            const mobileVideo = document.querySelector('.hero-video-mobile-container video');
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const desktopVideo = document.querySelector('.hero-video-container video');
+            const mobileVideo = document.querySelector('.hero-video-mobile-container video');
 
-                            var hasEnded = false;
+            var hasEnded = false;
 
-                            desktopVideo.playbackRate = 1.50;
-                            mobileVideo.playbackRate = 1.50;
+            desktopVideo.playbackRate = 1.50;
+            mobileVideo.playbackRate = 1.50;
 
-                            desktopVideo.addEventListener("play", function() {
-                                document.querySelectorAll(".c-hero__cta.cc-primary:not(.cc-mobile-cta)").forEach(function(element) {
-                                    element.classList.add("cc-animated-gradient");
-                                });
+            // New code to make elements visible from the start
+            const accolades = document.querySelector('.c-hero__accolades');
+            const subcontent = document.querySelector('.c-hero__subcontent');
+            const publications = document.querySelector('.c-hero__publications__container');
 
-                                document.querySelectorAll(".heading-xl.cc-hero").forEach(function(element) {
-                                    element.classList.add("cc-animated-gradient");
-                                });
-                            });
+            if (accolades) accolades.style.opacity = '1';
+            if (subcontent) subcontent.style.opacity = '1';
+            if (publications) publications.style.opacity = '1';
 
-                            desktopVideo.addEventListener('ended', function() {
-                                document.querySelectorAll(".c-hero__cta.cc-primary:not(.cc-mobile-cta)").forEach(function(element) {
-                                    element.classList.remove("cc-animated-gradient");
-                                    element.style.backgroundImage = 'linear-gradient(90deg, #D4FF9C, #9EF9FF)';
-                                });
+            desktopVideo.addEventListener("play", function() {
+                document.querySelectorAll(".c-hero__cta.cc-primary:not(.cc-mobile-cta)").forEach(function(element) {
+                    element.classList.add("cc-animated-gradient");
+                });
 
-                                document.querySelectorAll(".heading-xl").forEach(function(element) {
-                                    element.classList.remove("cc-animated-gradient");
-                                    element.style.backgroundImage = 'linear-gradient(90deg, #D4FF9C, #9EF9FF)';
-                                });
+                document.querySelectorAll(".heading-xl.cc-hero").forEach(function(element) {
+                    element.classList.add("cc-animated-gradient");
+                });
+            });
 
-                                hasEnded = true;
-                            });
+            desktopVideo.addEventListener('ended', function() {
+                document.querySelectorAll(".c-hero__cta.cc-primary:not(.cc-mobile-cta)").forEach(function(element) {
+                    element.classList.remove("cc-animated-gradient");
+                    element.style.backgroundImage = 'linear-gradient(90deg, #D4FF9C, #9EF9FF)';
+                });
 
-                            desktopVideo.addEventListener('click', function() {
-                                if (hasEnded) {
-                                    document.querySelectorAll(".c-hero__cta.cc-primary:not(.cc-mobile-cta)").forEach(function(element) {
-                                        element.style.backgroundImage = 'linear-gradient(90deg, #A9CBFF, #B39AFF)';
-                                    });
+                document.querySelectorAll(".heading-xl").forEach(function(element) {
+                    element.classList.remove("cc-animated-gradient");
+                    element.style.backgroundImage = 'linear-gradient(90deg, #D4FF9C, #9EF9FF)';
+                });
 
-                                    document.querySelectorAll(".heading-xl").forEach(function(element) {
-                                        element.style.backgroundImage = 'linear-gradient(90deg, #A9CBFF, #B39AFF)';
-                                    });
+                hasEnded = true;
+            });
 
-                                    desktopVideo.currentTime = 0;
-                                    desktopVideo.play();
-                                }
-                            });
+            desktopVideo.addEventListener('click', function() {
+                if (hasEnded) {
+                    document.querySelectorAll(".c-hero__cta.cc-primary:not(.cc-mobile-cta)").forEach(function(element) {
+                        element.style.backgroundImage = 'linear-gradient(90deg, #A9CBFF, #B39AFF)';
+                    });
 
-                            mobileVideo.addEventListener("play", function() {
-                                document.querySelectorAll(".c-hero__cta.cc-mobile-cta").forEach(function(element) {
-                                    element.classList.add("cc-animated-gradient");
-                                });
+                    document.querySelectorAll(".heading-xl").forEach(function(element) {
+                        element.style.backgroundImage = 'linear-gradient(90deg, #A9CBFF, #B39AFF)';
+                    });
 
-                                document.querySelectorAll(".heading-xl.cc-hero").forEach(function(element) {
-                                    element.classList.add("cc-animated-gradient");
-                                });
-                            });
+                    desktopVideo.currentTime = 0;
+                    desktopVideo.play();
+                }
+            });
 
-                            mobileVideo.addEventListener('ended', function() {
-                                const videoContainer = document.querySelector('.c-hero__video-container.cc-mobile');
-                                const mobileHeroVideo = document.querySelector('.c-hero__video-container.cc-mobile .c-hero__video');
-                                const accolades = document.querySelector('.c-hero__accolades');
-                                const subcontent = document.querySelector('.c-hero__subcontent');
-                                const publications = document.querySelector('.c-hero__publications__container');
+            mobileVideo.addEventListener("play", function() {
+                document.querySelectorAll(".c-hero__cta.cc-mobile-cta").forEach(function(element) {
+                    element.classList.add("cc-animated-gradient");
+                });
 
-                                videoContainer.style.height = '37.5vh';
-                                videoContainer.style.transform = 'none';
-                                mobileHeroVideo.style.height = '120%';
+                document.querySelectorAll(".heading-xl.cc-hero").forEach(function(element) {
+                    element.classList.add("cc-animated-gradient");
+                });
+            });
 
-                                setTimeout(() => {
-                                    accolades.style.opacity = '1';
-                                    subcontent.style.opacity = '1';
-                                    publications.style.opacity = '1';
-                                }, 300);
+            mobileVideo.addEventListener('ended', function() {
+                const videoContainer = document.querySelector('.c-hero__video-container.cc-mobile');
+                const mobileHeroVideo = document.querySelector('.c-hero__video-container.cc-mobile .c-hero__video');
 
-                                document.querySelectorAll(".c-hero__cta.cc-mobile-cta").forEach(function(element) {
-                                    element.classList.remove("cc-animated-gradient");
-                                    element.style.backgroundImage = 'linear-gradient(90deg, #D4FF9C, #9EF9FF)';
-                                });
+                videoContainer.style.height = '37.5vh';
+                videoContainer.style.transform = 'none';
+                mobileHeroVideo.style.height = '120%';
 
-                                document.querySelectorAll(".heading-xl.cc-hero").forEach(function(element) {
-                                    element.classList.remove("cc-animated-gradient");
-                                    element.style.backgroundImage = 'linear-gradient(90deg, #D4FF9C, #9EF9FF)';
-                                });
+                // Removed the setTimeout block that was changing opacity
 
-                                hasEnded = true;
-                            });
+                document.querySelectorAll(".c-hero__cta.cc-mobile-cta").forEach(function(element) {
+                    element.classList.remove("cc-animated-gradient");
+                    element.style.backgroundImage = 'linear-gradient(90deg, #D4FF9C, #9EF9FF)';
+                });
 
-                            mobileVideo.addEventListener('click', function() {
-                                if (hasEnded) {
-                                    document.querySelectorAll(".c-hero__cta.cc-mobile-cta").forEach(function(element) {
-                                        element.style.backgroundImage = 'linear-gradient(90deg, #A9CBFF, #B39AFF)';
-                                    });
+                document.querySelectorAll(".heading-xl.cc-hero").forEach(function(element) {
+                    element.classList.remove("cc-animated-gradient");
+                    element.style.backgroundImage = 'linear-gradient(90deg, #D4FF9C, #9EF9FF)';
+                });
 
-                                    document.querySelectorAll(".heading-xl.cc-hero").forEach(function(element) {
-                                        element.style.backgroundImage = 'linear-gradient(90deg, #A9CBFF, #B39AFF)';
-                                    });
+                hasEnded = true;
+            });
 
-                                    mobileVideo.currentTime = 0;
-                                    mobileVideo.play();
-                                }
-                            });
-                        });
-                    </script>
-                </div>
+            mobileVideo.addEventListener('click', function() {
+                if (hasEnded) {
+                    document.querySelectorAll(".c-hero__cta.cc-mobile-cta").forEach(function(element) {
+                        element.style.backgroundImage = 'linear-gradient(90deg, #A9CBFF, #B39AFF)';
+                    });
+
+                    document.querySelectorAll(".heading-xl.cc-hero").forEach(function(element) {
+                        element.style.backgroundImage = 'linear-gradient(90deg, #A9CBFF, #B39AFF)';
+                    });
+
+                    mobileVideo.currentTime = 0;
+                    mobileVideo.play();
+                }
+            });
+        });
+    </script>
+</div>
                 <div id="w-node-_9632f03e-635e-c4b3-fc4a-5ca9e6a95dc0-a5c474d3" class="c-hero__video-container">
                     <div class="c-hero__video-mask">
                         <div class="c-hero__video w-embed">
@@ -845,7 +847,7 @@
                                         </div>
                                     </a>
                                     <a href="/quiz" class="c-hero__cta cc-primary cc-mobile-visible cc-mobile-cta w-inline-block">
-                                        <div class="c-hero__cta__label cc-primary">Try Opal for free</div>
+                                        <div class="c-hero__cta__label cc-primary">Try Oncash for free</div>
                                     </a>
                                 </div>
                             </div>
@@ -2243,7 +2245,7 @@
                             </a>
                             
                         </div>
-                        <div class="c-footer__logo-container"><img src="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663fa64fc93a0bc041c12e4d_focus-company-crest.webp" loading="eager" alt="" class="c-footer__logo-img" /></div>
+                        <div class="c-footer__logo-container"><img src="/img/LOGO.png" loading="eager" alt="" class="c-footer__logo-img" /></div>
                     </div>
                     <div class="c-footer__right">
                         <div class="c-footer__column">
