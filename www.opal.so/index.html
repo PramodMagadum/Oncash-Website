@@ -5,13 +5,12 @@
 <head>
     <meta charset="utf-8" />
     <title>Oncash - Earn Rewards and Boost Your Motivation</title>
-    <meta content="Earn rewards and boost your motivation with Oncash. Available on Android." name="description" />
+    <meta content="Earn rewards and boost your motivation with Oncash." name="description" />
     <meta content="Oncash - Earn Rewards and Boost Your Motivation" property="og:title" />
     <meta content="Earn rewards and boost your motivation with Oncash. Available on Android." property="og:description" />
     <meta content="/img/LOGO.png" property="og:image" />
     <meta content="Oncash - Earn Rewards and Boost Your Motivation" property="twitter:title" />
     <meta content="Earn rewards and boost your motivation with Oncash. Available on iPhone, iPad, and macOS." property="twitter:description" />
-    <meta content="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/66448ef6332390d4439b1b74_Images%20to%20WebP%20Converter%20(5).webp" property="twitter:image" />
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -25,7 +24,7 @@
     </script>
     <link href="/img/icon.png" rel="shortcut icon" type="image/x-icon" />
     <link href="/img/icon.png" rel="apple-touch-icon" />
-    <link href="https://www.opal.so/" rel="canonical" />
+    <link href="https://www.oncash.in/" rel="canonical" />
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-168845105-1"></script>
     <script type="text/javascript">
         window.dataLayer = window.dataLayer || [];
@@ -475,13 +474,27 @@
             <div class="c-html-embed w-embed w-script">
                 <script>
                     document.addEventListener("DOMContentLoaded", function() {
+                        // Smooth scroll to top when logo is clicked
                         document.querySelector('.brand').addEventListener('click', function(e) {
                             e.preventDefault();
                             e.stopPropagation();
-
                             window.scrollTo({
                                 top: 0,
                                 behavior: 'smooth'
+                            });
+                        });
+    
+                        // Smooth scroll for navigation links
+                        document.querySelectorAll('.c-nav__link').forEach(link => {
+                            link.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                const targetId = this.getAttribute('href').substring(1);
+                                const targetElement = document.getElementById(targetId);
+                                if (targetElement) {
+                                    targetElement.scrollIntoView({
+                                        behavior: 'smooth'
+                                    });
+                                }
                             });
                         });
                     });
@@ -495,15 +508,19 @@
                     }
                 </style>
             </div>
-            <a href="/" aria-current="page" class="link-block-8 w-inline-block w--current">
-                <div><img src="/img/LOGO.png" loading="eager" alt="" class="c-nav__logo" /></div>
+            <a href="#" class="brand link-block-8 w-inline-block">
+                <div><img src="/img/LOGO.png" loading="eager" alt="Logo" class="c-nav__logo" /></div>
             </a>
             <div class="c-nav__menu-container">
                 <nav role="navigation" class="c-nav__menu w-nav-menu">
                     <div class="c-nav__menu-content-cta-container">
-                        <div class="c-nav__menu-inner-content"><a href="/about" class="c-nav__link label-sm cc-hover-opacity w-nav-link">Our Story</a><a href="/use-cases" class="c-nav__link label-sm cc-hover-opacity w-nav-link">Use Cases</a><a href="/features" class="c-nav__link label-sm cc-hover-opacity w-nav-link">Features</a>
-                            <a
-                                href="/careers" class="c-nav__link label-sm cc-hover-opacity w-nav-link">Careers <span class="text-span-17">5</span> </a><a href="/help" class="c-nav__link label-sm cc-hover-opacity w-nav-link">Support</a></div>
+                        <div class="c-nav__menu-inner-content">
+                            <a href="#impact" class="c-nav__link label-sm cc-hover-opacity w-nav-link">Our Impact</a>
+                            <a href="#features" class="c-nav__link label-sm cc-hover-opacity w-nav-link">Features</a>
+                            <a href="#use-cases" class="c-nav__link label-sm cc-hover-opacity w-nav-link">Use Cases</a>
+                            <a href="#community" class="c-nav__link label-sm cc-hover-opacity w-nav-link">Community <span class="text-span-17">5</span></a>
+                            <a href="#support" class="c-nav__link label-sm cc-hover-opacity w-nav-link">Support</a>
+                        </div>
                         <div class="c-nav__cta-btn-container">
                             <a href="/quiz" class="c-cta-btn cc-nav w-inline-block">
                                 <div class="c-cta-btn__label cc-gradient cc-label-sm">Try for free</div>
@@ -513,9 +530,11 @@
                 </nav>
             </div>
             <div class="c-nav__menu-button w-nav-button">
-                <div class="c-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 20 14" fill="none">
-  <path d="M1 7H19M1 1H19M1 13H19" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></div>
+                <div class="c-icon w-embed">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 20 14" fill="none">
+                        <path d="M1 7H19M1 1H19M1 13H19" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
@@ -1067,7 +1086,7 @@
                 </div>
             </div><a href="https://www.opal.so/screen-time-report" target="_blank" class="c-impact__cta-container cc-fade-up cc-hover-scale w-inline-block"><img src="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637b07ea922693ba04cf8e0_screen-time-report-phone.webp" loading="lazy" sizes="(max-width: 479px) 96px, (max-width: 767px) 104px, (max-width: 991px) 124px, 134px" srcset="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637b07ea922693ba04cf8e0_screen-time-report-phone-p-500.webp 500w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/6637b07ea922693ba04cf8e0_screen-time-report-phone.webp 936w" alt="" class="c-impact__cta-image"/><div class="c-impact__cta"><div class="c-impact__cta-title-container"><div class="c-impact__cta-title">Oncash 2Ø23 Earning Report →</div><div class="c-impact__cta-title cc-position-absolute cc-opacity-40">Oncash 2Ø23 Earning Report →</div></div></div></a></div>
     </section>
-    <section id="testimonials" class="c-testimonials">
+    <section id="community" class="c-testimonials">
         <div class="c-header__wrap">
             <div class="c-header">
                 <div class="c-header__gradient"><img src="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663fb9d5e5ade1ff2398754f_pink-glow.webp" loading="lazy" sizes="(max-width: 479px) 440px, (max-width: 991px) 100vw, 1120px" srcset="https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663fb9d5e5ade1ff2398754f_pink-glow-p-500.png 500w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663fb9d5e5ade1ff2398754f_pink-glow-p-800.png 800w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663fb9d5e5ade1ff2398754f_pink-glow-p-1080.png 1080w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663fb9d5e5ade1ff2398754f_pink-glow-p-1600.png 1600w, https://cdn.prod.website-files.com/5ffc51a847b677701a3da52b/663fb9d5e5ade1ff2398754f_pink-glow.webp 2000w"
@@ -1088,7 +1107,7 @@
                                                                                                                                                                                         </a>
                                                                                                                                                                                     </div>
     </section>
-    <section id="how-to-use" class="c-core-features">
+    <section id="features" class="c-core-features">
         <div class="c-section-wrap">
             <div class="c-section-container cc-core-features">
                 <div class="c-core-feature">
@@ -2011,14 +2030,14 @@
             </div>
         </section> -->
     </div>
-    <section class="c-footer">
+    <section id="support" class="c-footer">
         <div class="c-section-wrap">
             <div class="c-footer__container">
                 <div class="c-footer__content">
                     <div class="c-footer__left">
                         <div class="c-footer__copyright">© 2024 Oncash. All rights reserved.</div>
                         <div class="c-footer__socials">
-                            <a href="https://www.linkedin.com/in/your-profile" target="_blank" class="c-footer__social-link w-inline-block">
+                            <a href="https://www.linkedin.com/in/oncash-company-788346261/" target="_blank" class="c-footer__social-link w-inline-block">
                                 <div class="c-footer__social-link__icon-wrap--linkedin">
                                     <div class="c-icon w-embed">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none">
@@ -2062,44 +2081,22 @@
                         <div class="c-footer__column">
                             <div class="c-footer__heading cc-gradient">Oncash</div>
                             <div class="c-footer__links">
-                                <a href="/signup" class="c-footer__link cc-hover-opacity">Sign Up</a>
-                                <a href="/pricing" class="c-footer__link cc-hover-opacity">Pricing</a>
-                                <a href="/features" class="c-footer__link cc-hover-opacity">Features</a>
-                                <a href="https://apps.apple.com/us/app/oncash/id123456789" target="_blank" class="c-footer__link cc-hover-opacity">Download for iOS</a>
+                                <a href="/signup" class="c-footer__link cc-hover-opacity">Home</a>
+                                <a href="/pricing" class="c-footer__link cc-hover-opacity">Features</a>
+                                <a href="/features" class="c-footer__link cc-hover-opacity">Community</a>
+                                <a href="https://apps.apple.com/us/app/oncash/id123456789" target="_blank" class="c-footer__link cc-hover-opacity">Contact US</a>
                                 <a href="https://play.google.com/store/apps/details?id=com.oncash" target="_blank" class="c-footer__link cc-hover-opacity">Download for Android</a>
                             </div>
                         </div>
                     </div>
                     
-                        <!-- <div class="c-footer__column">
-                            <div class="c-footer__heading cc-gradient">About</div>
-                            <div class="c-footer__links"><a href="/about" class="c-footer__link cc-hover-opacity">Our Story</a><a href="/careers" class="c-footer__link cc-hover-opacity">Careers</a><a href="https://shop.opal.so" class="c-footer__link cc-hover-opacity">Shop</a><a href="https://press.opal.so"
-                                    class="c-footer__link cc-hover-opacity">Press</a><a href="https://www.opal.so/help/how-do-i-give-feedback-on-opal" class="c-footer__link cc-hover-opacity">Contact Us</a></div>
-                        </div>
-                        <div class="c-footer__column">
-                            <div class="c-footer__heading cc-gradient">Learn</div>
-                            <div class="c-footer__links"><a href="https://www.opal.so/blog/how-to-block-instagram-on-iphone" class="c-footer__link cc-hover-opacity">How to Block Instagram</a><a href="https://www.opal.so/blog/how-to-block-tiktok-on-an-iphone" class="c-footer__link cc-hover-opacity">How to Block TikTok</a>
-                                <a
-                                    href="https://www.opal.so/blog/how-to-block-twitter-on-an-iphone" class="c-footer__link cc-hover-opacity">How to Block Twitter</a><a href="https://www.opal.so/blog/how-to-block-facebook-on-an-iphone" class="c-footer__link cc-hover-opacity">How to Block Facebook</a><a href="https://www.opal.so/blog/5-ways-to-use-opal-with-shortcuts"
-                                        class="c-footer__link cc-hover-opacity">How to use Shortcuts</a><a href="/screentime" class="c-footer__link cc-hover-opacity">Screen Time</a></div>
-                        </div>
-                        <div class="c-footer__column">
-                            <div class="c-footer__heading cc-gradient">Community</div>
-                            <div class="c-footer__links"><a href="https://community.opal.so/" class="c-footer__link cc-hover-opacity">Community Forum</a><a href="/blog" class="c-footer__link cc-hover-opacity">Blog</a><a href="/screentime-blogs" class="c-footer__link cc-hover-opacity">Screen Time Blogs</a>
-                                <a
-                                    href="/purchase/focus-coaching" class="c-footer__link cc-hover-opacity">Focus Coaching</a>
-                            </div>
-                        </div> -->
-                        <!-- <div class="c-footer__column">
-                            <div class="c-footer__heading cc-gradient">Support</div>
-                            <div class="c-footer__links"><a href="/help" class="c-footer__link cc-hover-opacity">Help Centre</a><a href="/terms" class="c-footer__link cc-hover-opacity">Terms of Use</a><a href="/terms" class="c-footer__link cc-hover-opacity">Privacy Policy</a><a href="/students"
-                                    class="c-footer__link cc-hover-opacity">For Students</a><a href="/gift" class="c-footer__link cc-hover-opacity">Gift Cards</a></div>
-                        </div> -->
+                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
+  
     <div class="c-floating-counter__container">
         <div class="c-html-embed w-embed w-script">
             <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js"></script>
